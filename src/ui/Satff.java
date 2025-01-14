@@ -16,22 +16,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JTextField;
 
 /**
  *
  * @author ADMIN
  */
-public class Staff2 extends javax.swing.JFrame {
-
+public class Satff extends javax.swing.JFrame {
+	
 	public Customer customer = new Customer();
     /**
      * Creates new form Member
      */
-    public Staff2() {
+    public Satff() {
         initComponents();
         loadCustomers();
     }
@@ -79,7 +82,7 @@ public class Staff2 extends javax.swing.JFrame {
 				dispose();
         	}
         });
-        jButton8.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Downloads\\Edit-validated-icon.png"));
+        jButton8.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Downloads\\add-icon.png"));
         jButton3 = new javax.swing.JButton();
         jButton3.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -123,7 +126,7 @@ public class Staff2 extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(0, 255, 204));
         jButton6.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Downloads\\Load-Balancer-icon.png")); // NOI18N
-        jButton6.setText("Nạp tiền");
+        jButton6.setText("Tìm kiếm");
 
         jButton7.setBackground(new java.awt.Color(255, 102, 255));
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
@@ -135,7 +138,7 @@ public class Staff2 extends javax.swing.JFrame {
         });
 
         jButton8.setBackground(new java.awt.Color(102, 255, 102));
-        jButton8.setText("Chỉnh sửa");
+        jButton8.setText("THÊM");
 
         jButton3.setBackground(new java.awt.Color(255, 102, 102));
         
@@ -145,7 +148,7 @@ public class Staff2 extends javax.swing.JFrame {
                 btnEditCustomer();
         	}
         });
-        jButton8_1.setText("Chỉnh sửa");
+        jButton8_1.setText("SỬA");
         jButton8_1.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Downloads\\Edit-validated-icon.png"));
         jButton8_1.setBackground(new Color(102, 255, 102));
         
@@ -155,55 +158,89 @@ public class Staff2 extends javax.swing.JFrame {
         		btnDeleteCustomer();
         	}
         });
-        jButton8_2.setText("Chỉnh sửa");
-        jButton8_2.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Downloads\\Edit-validated-icon.png"));
+        jButton8_2.setText("XÓA");
+        jButton8_2.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Downloads\\Button-Close-icon.png"));
         jButton8_2.setBackground(new Color(102, 255, 102));
+        
+        JButton jButton8_2_1 = new JButton();
+        jButton8_2_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ListComputer1 lg = new ListComputer1(customer.getId()); 
+				lg.show(); 
+				dispose();
+        	}
+        });
+        jButton8_2_1.setText("THUÊ MÁY");
+        jButton8_2_1.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Downloads\\Drives-Computer-alt-2-Metro-icon.png"));
+        jButton8_2_1.setBackground(new Color(102, 255, 102));
+        
+        txttimKiem = new JTextField();
+        txttimKiem.setColumns(10);
+        
+        JButton btnNewButton = new JButton("Tìm kiếm");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		searchCustomers();
+        	}
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         layout.setHorizontalGroup(
         	layout.createParallelGroup(Alignment.LEADING)
-        		.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 937, Short.MAX_VALUE)
+        		.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 1181, Short.MAX_VALUE)
         		.addGroup(layout.createSequentialGroup()
         			.addContainerGap()
         			.addGroup(layout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(jButton7, GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
+        				.addComponent(jButton7, GroupLayout.DEFAULT_SIZE, 1171, Short.MAX_VALUE)
         				.addGroup(layout.createSequentialGroup()
         					.addComponent(jButton6, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
-        					.addGap(198)
-        					.addComponent(jButton8, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
-        					.addGap(58)
-        					.addComponent(jButton8_1, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
-        					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(jButton8_2, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
+        					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(layout.createSequentialGroup()
+        							.addGap(148)
+        							.addComponent(jButton8, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
+        							.addGap(33)
+        							.addComponent(jButton8_1, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
+        							.addGap(43)
+        							.addComponent(jButton8_2, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
+        							.addGap(44)
+        							.addComponent(jButton8_2_1, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE))
+        						.addGroup(layout.createSequentialGroup()
+        							.addGap(37)
+        							.addComponent(txttimKiem, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
+        							.addGap(43)
+        							.addComponent(btnNewButton)))
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(jButton3, GroupLayout.PREFERRED_SIZE, 144, GroupLayout.PREFERRED_SIZE)
-        					.addGap(0, 13, Short.MAX_VALUE)))
+        					.addPreferredGap(ComponentPlacement.RELATED, 23, Short.MAX_VALUE)))
         			.addContainerGap())
         		.addGroup(layout.createSequentialGroup()
         			.addComponent(jButton2)
-        			.addGap(0, 784, Short.MAX_VALUE))
+        			.addGap(0, 1032, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
         	layout.createParallelGroup(Alignment.TRAILING)
         		.addGroup(layout.createSequentialGroup()
+        			.addComponent(jButton7, GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+        			.addGap(18)
         			.addGroup(layout.createParallelGroup(Alignment.TRAILING)
         				.addGroup(layout.createSequentialGroup()
-        					.addContainerGap()
-        					.addComponent(jButton8_2, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE))
-        				.addGroup(layout.createSequentialGroup()
-        					.addComponent(jButton7, GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jButton3, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(jButton6, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(txttimKiem, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(btnNewButton))
         					.addGap(18)
-        					.addGroup(layout.createParallelGroup(Alignment.TRAILING)
-        						.addGroup(layout.createSequentialGroup()
-        							.addGroup(layout.createParallelGroup(Alignment.BASELINE)
-        								.addComponent(jButton8, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
-        								.addComponent(jButton3, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
-        								.addComponent(jButton6, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE))
-        							.addGap(18)
-        							.addComponent(jButton2))
-        						.addComponent(jButton8_1, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE))))
+        					.addComponent(jButton2))
+        				.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        					.addComponent(jButton8, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+        					.addComponent(jButton8_1, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(jButton8_2, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE))
         			.addPreferredGap(ComponentPlacement.RELATED)
         			.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 427, GroupLayout.PREFERRED_SIZE))
+        		.addGroup(layout.createSequentialGroup()
+        			.addContainerGap(181, Short.MAX_VALUE)
+        			.addComponent(jButton8_2_1, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+        			.addGap(433))
         );
         getContentPane().setLayout(layout);
 
@@ -222,13 +259,13 @@ public class Staff2 extends javax.swing.JFrame {
     	Edit editForm = new Edit(customer, "EDIT");
         
         editForm.setVisible(true);
-        dispose(); // Close the current form
+        dispose(); 
     }
     private void btnDeleteCustomer() {
     	Edit editForm = new Edit(customer, "DELETE");
         
         editForm.setVisible(true);
-        dispose(); // Close the current form
+        dispose(); 
     }
     private void loadCustomers() {
         DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
@@ -242,8 +279,24 @@ public class Staff2 extends javax.swing.JFrame {
             });
         }
     }
-   
-
+   private void searchCustomers() {
+	   String name = txttimKiem.getText();
+	   if(name.isEmpty()) {
+           JOptionPane.showMessageDialog(null, "Tìm kiếm thất bại!", "Thoát", JOptionPane.INFORMATION_MESSAGE);
+	   }
+           else {
+        	   DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
+               table.setRowCount(0);
+               List<Customer> listCustommer1 = CustomerDao.getAllCustomer1(name);
+               for (Customer ct : listCustommer1) {
+               	table.addRow(new Object[]{
+                       ct.getId(),
+                       ct.getName(),
+                       ct.getPhonenumber()                
+                   });
+               }
+           }
+	   }
     /**
      * @param args the command line arguments
      */
@@ -262,20 +315,20 @@ public class Staff2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Staff2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Satff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Staff2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Satff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Staff2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Satff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Staff2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Satff.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Staff2().setVisible(true);
+                new Satff().setVisible(true);
             }
         });
     }
@@ -290,4 +343,5 @@ public class Staff2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private JButton jButton8_2;
+    private JTextField txttimKiem;
 }

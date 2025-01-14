@@ -15,6 +15,14 @@ public class Payment {
 		this.paymentDate = paymentDate;
 		this.amount = amount;
 	}
+	public Payment() {};
+	
+	public Payment(int usageId, Date paymentDate, double amount) {
+		super();
+		this.usageId = usageId;
+		this.paymentDate = paymentDate;
+		this.amount = amount;
+	}
 	public int getId() {
 		return id;
 	}

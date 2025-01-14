@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import manager.ComputerDao;
 import model.Computer;
-import ui.Staff2;
+import ui.Satff;
 
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -49,7 +49,7 @@ public class Main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton2.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		Staff2 lg = new Staff2(); 
+        		Satff lg = new Satff(); 
 				lg.show(); 
 				dispose();
         		
@@ -239,7 +239,7 @@ public class Main extends javax.swing.JFrame {
     }                                        
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {     
-    	ui.Service lg = new ui.Service(); 
+    	ui.ListComputer2 lg = new ui.ListComputer2(); 
 		lg.show(); 
 		dispose();
         // TODO add your handling code here:

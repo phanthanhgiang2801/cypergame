@@ -31,7 +31,28 @@ public class CustomerDao {
            }
            return ls;
        }
-    
+    public static List<Customer> getAllCustomer1(String name) {
+        List<Customer> customers = new ArrayList<>();
+        String query = "SELECT * FROM customers WHERE name LIKE ?";  
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, "%"+ name + "%");  
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                customers.add(new Customer(
+                        rs.getInt("id"),
+                        rs.getInt("phone_number"),
+                        rs.getString("name")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customers;
+    }
     public static boolean insertCustomer(Customer customer) {
         String query = "INSERT INTO customers (phone_number, name) VALUES ( ?, ?)";
 
@@ -85,6 +106,11 @@ public class CustomerDao {
     }
 
 	public static List<Computer> getAllComputers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static List<Customer> searchCustomers(String searchTerm) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -80,6 +80,7 @@ public class Login extends JFrame {
 		lblNewLabel_1.setForeground(new Color(255, 0, 0));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 24));
 		JButton btnNewButton = new JButton("Đăng nhập");
+		
 		btnNewButton.addActionListener(e ->{
 			
 			String a = txtTnngNhp.getText();
